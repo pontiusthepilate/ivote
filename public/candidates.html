@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#008751">
+  <title>Ivote Candidates</title>
+  <meta name="description" content="INEC 2027 candidates by election and district">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css?v=14">
+  <style>
+    .filters { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 16px; }
+    @media (max-width: 640px) { .filters { grid-template-columns: 1fr; } }
+    select.txt { appearance: auto; width: 100%; min-height: 52px; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; background: #fff; }
+    .clist { margin-top: 16px; display: grid; gap: 10px; }
+    .crow { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+    .crow .cphoto { width: 64px; height: 64px; }
+    .crow .pname small { -webkit-line-clamp: 3; }
+    .crow .up { grid-column: 2 / 4; display: flex; gap: 8px; align-items: center; }
+    .crow .up .btn { min-height: 40px; padding: 6px 12px; font-size: 15px; }
+    .note { font-size: 14px; color: var(--muted); margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="flagbar"><i></i><i></i><i></i></div>
+  <header class="top">
+    <a class="logo" href="/"><span class="mark"><i></i><i>✓</i><i></i></span>Ivote</a>
+    <span class="spacer"></span>
+  </header>
+  <main class="wrap" style="max-width:820px">
+    <h1>Candidates</h1>
+    <p class="lead">INEC final list of candidates, January 2027 elections.</p>
+    <div class="filters">
+      <select class="txt" id="election" aria-label="Election">
+        <option value="pres">Presidential</option><option value="sen">Senate</option><option value="rep">House of Reps</option>
+      </select>
+      <select class="txt" id="state" aria-label="State"></select>
+      <select class="txt" id="area" aria-label="District"></select>
+    </div>
+    <div class="clist" id="list" aria-live="polite"></div>
+    <p class="note" id="credits"></p>
+    <a class="homebtn" href="/">🏠 Back to home page</a>
+  </main>
+  <script src="/candidates.js?v=2"></script>
+</body>
+</html>

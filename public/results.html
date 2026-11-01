@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#008751">
+  <title>Ivote Live Results</title>
+  <meta name="description" content="Live polling unit collation across Nigeria">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="/style.css?v=14">
+  <link rel="stylesheet" href="/results.css?v=6">
+</head>
+<body class="dash">
+  <div class="flagbar"><i></i><i></i><i></i></div>
+  <header class="top">
+    <a class="logo" href="/"><span class="mark"><i></i><i>✓</i><i></i></span>Ivote</a>
+    <span class="live"><span class="dot"></span>Live</span>
+    <span class="spacer"></span>
+    <form id="find" class="find" role="search">
+      <input class="txt" id="findcode" placeholder="Polling unit no. e.g. 24/10/03/015" aria-label="Find polling unit">
+      <button class="btn" type="submit">Open</button>
+    </form>
+    <a class="btn ghost reportbtn" href="/">Report</a>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Election">
+    <button role="tab" data-e="pres" class="pres">Presidential</button>
+    <button role="tab" data-e="sen" class="sen">Senate</button>
+    <button role="tab" data-e="rep" class="rep">House of Reps</button>
+  </nav>
+
+  <div class="dwrap">
+    <div class="crumbs" id="crumbs" aria-label="Where you are"></div>
+
+    <section class="tiles" id="tiles" aria-live="polite"></section>
+
+    <div class="grid">
+      <section class="panel mapp">
+        <div class="phead"><h2 id="maptitle">Leading party by state</h2><span class="hint" id="updated"></span></div>
+        <div id="map" role="img" aria-label="Map of results"></div>
+        <div class="legend" id="legend"></div>
+      </section>
+      <section class="panel">
+        <div class="phead"><h2>Votes counted</h2></div>
+        <div id="bars"></div>
+        <p class="hint">Only numbers sent from polling units are counted. Where reporters disagree, the result most of them agree on counts, and the unit is marked for review.</p>
+      </section>
+    </div>
+
+    <section class="panel">
+      <div class="phead"><h2 id="tabletitle">States</h2>
+        <button class="btn ghost small" id="reviewq" type="button">Needs review</button></div>
+      <div class="tablewrap"><table id="table"></table></div>
+    </section>
+
+    <a class="homebtn" href="/">🏠 Back to home page</a>
+
+    <footer class="dfoot">
+      <span>Polling unit list: INEC delimitation (176,846 units). Numbers are citizen reports, not official INEC results.</span>
+      <span><a class="linkish" href="/candidates">Candidates</a> · <button class="linkish" id="adminbtn" type="button">Admin</button></span>
+    </footer>
+  </div>
+
+  <dialog id="modal"><div id="modalbody"></div></dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="/results.js?v=7"></script>
+</body>
+</html>
